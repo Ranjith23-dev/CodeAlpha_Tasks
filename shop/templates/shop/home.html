@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RekShoppe</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+        }
+
+        .hero {
+            padding: 60px;
+            text-align: center;
+            background: linear-gradient(90deg, #2563eb, #06b6d4);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .price {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>🛍️ RekShoppe store </h1>
+    <p3>Your Premium Online Shopping Destination</p3>
+    <p>© 2026 RekShoppe. All Rights Reserved.</p>
+</div>
+
+<div class="products">
+
+    {% for product in products %}
+    <div class="card">
+        <h3>{{ product.name }}</h3>
+        <p class="price">₹{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+
+        <a class="btn" href="/product/{{ product.slug }}/">View</a>
+        <a class="btn" href="/cart/add/{{ product.id }}/">Add</a>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }} | RekShoppe{% endblock %}
+{% block content %}
+<div class="detail-layout">
+    <img class="detail-image" src="{{ product.image_url|default:'https://via.placeholder.com/800x500?text=Product' }}" alt="{{ product.name }}">
+    <div>
+        <h1>{{ product.name }}</h1>
+        <p class="price">${{ product.price }}</p>
+        <p><strong>Stock:</strong> {{ product.stock }}</p>
+        <p>{{ product.description }}</p>
+        <a href="{% url 'add_to_cart' product.id %}" class="btn">Add to cart</a>
+    </div>
+</div>
+{% endblock %}

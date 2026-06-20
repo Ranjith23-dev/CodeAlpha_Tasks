@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Checkout | SimpleStore{% endblock %}
+{% block content %}
+<h1>Checkout</h1>
+<div class="checkout-layout">
+    <form method="post" class="form-card">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn">Place Order</button>
+    </form>
+
+    <aside class="summary-card">
+        <h2>Order Summary</h2>
+        <ul>
+            {% for item in items %}
+                <li>{{ item.product.name }} × {{ item.quantity }} <span>${{ item.subtotal }}</span></li>
+            {% endfor %}
+        </ul>
+        <h3>Total: ${{ total }}</h3>
+    </aside>
+</div>
+{% endblock %}

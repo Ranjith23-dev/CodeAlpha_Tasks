@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Order Success | RekShoppe{% endblock %}
+{% block content %}
+<section class="success-box">
+    <h1>Thank you for your order!</h1>
+    <p>Your order ID is <strong>#{{ order.id }}</strong>.</p>
+    <p>Total paid: <strong>${{ order.total_amount }}</strong></p>
+    <p>Shipping to: {{ order.address }}, {{ order.city }}, {{ order.postal_code }}</p>
+    <a href="/" class="btn">Continue Shopping</a>
+</section>
+{% endblock %}
